@@ -1,10 +1,11 @@
-import Head from 'next/head'
-import clientPromise from '../lib/mongodb'
-import { InferGetServerSidePropsType } from 'next'
+import Head from 'next/head';
+import clientPromise from '../lib/mongodb';
+import { InferGetServerSidePropsType } from 'next';
+import Link from 'next/link';
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   try {
-    await clientPromise
+    await clientPromise;
     // `await clientPromise` will use the default database passed in the MONGODB_URI
     // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
     //
@@ -16,12 +17,12 @@ export async function getServerSideProps(context) {
 
     return {
       props: { isConnected: true },
-    }
+    };
   } catch (e) {
-    console.error(e)
+    console.error(e);
     return {
       props: { isConnected: false },
-    }
+    };
   }
 }
 
@@ -31,14 +32,12 @@ export default function Home({
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Nextjs Mongodb Boilerplate</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js with MongoDB!</a>
-        </h1>
+        <h1 className="title">NextJs MongoDB Boilerplate</h1>
 
         {isConnected ? (
           <h2 className="subtitle">You are connected to MongoDB</h2>
@@ -50,7 +49,27 @@ export default function Home({
         )}
 
         <p className="description">
-          Get started by editing <code>pages/index.js</code>
+          These are 3 Example of consuming MongoDB collection, follow these
+          links to se results
+        </p>
+        <div>
+          <div className="grid">
+            <div className="card">
+              <Link href={'/api/movies'}>
+                Next.js API Endpoint with MongoDB
+              </Link>
+            </div>
+            <div className="card">
+              <Link href={'/movies'}>Next.js Pages with MongoDB</Link>
+            </div>
+            <div className="card">
+              <Link href={'/top'}>Next.js Static Generation with MongoDB</Link>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <p className="description">
+          For more info and tutorial related please follow these links below.
         </p>
 
         <div className="grid">
@@ -247,5 +266,5 @@ export default function Home({
         }
       `}</style>
     </div>
-  )
+  );
 }

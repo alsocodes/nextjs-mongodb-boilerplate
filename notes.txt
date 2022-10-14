@@ -1,0 +1,5 @@
+#Get started with mongodb atlas
+https://www.freecodecamp.org/news/get-started-with-mongodb-atlas/
+
+#Tutorial nextjs and mongo
+https://www.mongodb.com/developer/languages/javascript/nextjs-with-mongodb/
