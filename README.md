@@ -22,7 +22,7 @@ npx create-next-app --example with-mongodb with-mongodb-app
 ```
 
 ```bash
-yarn create next-app --example with-mongodb with-mongodb-app
+yarn create next-app --example with-mongodb with-mongodb-app --typescript
 ```
 
 ```bash
